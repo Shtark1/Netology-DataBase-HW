@@ -1,0 +1,14 @@
+# СОЗДАНИЕ ТАБЛИЦ
+
+CREATE TABLE IF NOT EXISTS performes (id SERIAL PRIMARY KEY, name VARCHAR(40) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS album (id SERIAL PRIMARY KEY, name VARCHAR(40) NOT NULL, release DATE NOT NULL);
+
+CREATE TABLE IF NOT EXISTS tracks (id SERIAL PRIMARY KEY, name VARCHAR(40) NOT NULL, duration INTEGER NOT NULL);
+
+
+# СОЗДАНИЕ ЗАВИСИМОСТИ
+
+ALTER TABLE album add column performes_id integer references performes(id);
+
+ALTER TABLE tracks add column album_id integer references album(id);
