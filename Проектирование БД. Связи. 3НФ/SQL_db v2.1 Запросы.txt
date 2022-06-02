@@ -13,13 +13,13 @@
 
 # СОЗДАНИЕ ЗАВИСИМОСТИ
 
-	CREATE TABLE IF NOT EXISTS performes/genre (performes_id INTEGER REFERENCES performes(id),
+	CREATE TABLE IF NOT EXISTS performes_genre (performes_id INTEGER REFERENCES performes(id),
 	genre_id INTEGER REFERENCES genre(id), CONSTRAINT pk PRIMARY KEY (performes_id, genre_id));
 
-	CREATE TABLE IF NOT EXISTS performes/album (performes_id INTEGER REFERENCES performes(id),
-	album_id INTEGER REFERENCES album(id), CONSTRAINT pk PRIMARY KEY (performes_id, album_id));
+	CREATE TABLE IF NOT EXISTS performes_album (performes_id INTEGER REFERENCES performes(id),
+	album_id INTEGER REFERENCES album(id), CONSTRAINT pk2 PRIMARY KEY (performes_id, album_id));
 
-	CREATE TABLE IF NOT EXISTS tracks/collection tracks_id INTEGER REFERENCES tracks(id),
-	collection_id INTEGER REFERENCES collection(id), CONSTRAINT pk PRIMARY KEY (tracks_id, collection_id));
+	CREATE TABLE IF NOT EXISTS tracks_collection (tracks_id INTEGER REFERENCES tracks(id),
+	collection_id INTEGER REFERENCES collection(id), CONSTRAINT pk3 PRIMARY KEY (tracks_id, collection_id));
 
 	ALTER TABLE tracks add column album_id integer references album(id);
